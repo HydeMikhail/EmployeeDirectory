@@ -12,7 +12,7 @@ class Database{
         Database();
 
         void loadProfiles();
-        void PrintDB();
+        void printDB();
 
         Json m_DB;
         std::vector<Profile> m_Employees;

@@ -22,6 +22,9 @@ void Database::loadProfiles(){
     }
 }
 
-void Database::PrintDB(){
-    std::cout << m_DB << std::endl;
+void Database::printDB(){
+    for (Json::iterator item = m_DB.begin(); item != m_DB.end(); item++){
+        std::cout << "Employee ID: " << item.key() << std::endl;
+        std::cout << item.value() << std::endl;
+    }
 }
