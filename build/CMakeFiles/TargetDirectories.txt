@@ -1,6 +1,0 @@
-/home/mikhail/Documents/C++/proj_tmp/build/CMakeFiles/employee_lib.dir
-/home/mikhail/Documents/C++/proj_tmp/build/CMakeFiles/employee_directory.dir
-/home/mikhail/Documents/C++/proj_tmp/build/CMakeFiles/edit_cache.dir
-/home/mikhail/Documents/C++/proj_tmp/build/CMakeFiles/rebuild_cache.dir
-/home/mikhail/Documents/C++/proj_tmp/build/vendor/json/CMakeFiles/edit_cache.dir
-/home/mikhail/Documents/C++/proj_tmp/build/vendor/json/CMakeFiles/rebuild_cache.dir

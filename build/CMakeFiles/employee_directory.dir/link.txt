@@ -1,1 +1,0 @@
-/usr/bin/g++ -g -rdynamic CMakeFiles/employee_directory.dir/src/main.cpp.o -o employee_directory  libemployee_lib.a 
