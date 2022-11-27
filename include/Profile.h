@@ -8,6 +8,7 @@ using Json = nlohmann::json;
 class Profile{
 
     public:
+        // Types
         enum EmployeeType{
             FULL_TIME,
             HOURLY,
@@ -22,49 +23,64 @@ class Profile{
             EMBEDDED
         };
 
-        enum Location{
-            SOMERVILLE,
-            NORTH_CAROLINA,
-            BUDAPEST
+        enum EmployeeLocation{
+            BOSTON,
+            NEW_YORK,
+            SAN_FRANCISCO
         };
 
-        enum VerticalSegment{
-            CORE,
-            DENTAL
+        enum EmployeeVerticalSegment{
+            CORE
         };
 
-        struct Compensation {
+        struct EmployeeCompensation {
             uint64_t Salary;
             uint64_t Bonus;
             uint64_t Options;
         };
 
-        struct StartDate {
+        struct EmployeeStartDate {
             uint64_t Year;
             uint64_t Month;
             uint64_t Day;
         };
 
-        struct Account {
+        struct EmployeeAccount {
             std::string Password;
             bool Admin;
         };
 
+        // Constructors
         Profile();
-        void loadFromMap(std::string EmployeeID, Json InfoMap);
+        Profile(std::string FirstName,
+                std::string LastName,
+                std::string Title,
+                EmployeeTeam Team,
+                EmployeeLocation Location,
+                EmployeeType Type,
+                EmployeeCompensation Compensation,
+                EmployeeStartDate StartDate,
+                EmployeeVerticalSegment VerticalSegment,
+                EmployeeAccount Account,
+                std::vector<std::string> Reports);
 
-        std::string m_EmployeeID;
+        // Members
         std::string m_FirstName;
         std::string m_LastName;
         std::string m_Email;
         std::string m_Title;
 
         EmployeeTeam m_Team;
-        Location m_Location;
+        EmployeeLocation m_Location;
         EmployeeType m_EmployeeType;
-        Compensation m_Compensation;
-        StartDate m_StartDate;
-        VerticalSegment m_VerticalSegment;
+        EmployeeCompensation m_Compensation;
+        EmployeeStartDate m_StartDate;
+        EmployeeVerticalSegment m_VerticalSegment;
+        EmployeeAccount m_Account;
 
         std::vector<std::string> m_Reports;
+
+    private:
+        // Methods
+        std::string GenerateEmail();
 };

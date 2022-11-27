@@ -4,7 +4,9 @@
 
 int main(){
     Database DB;
+    DB.LoadAsMap();
 
-    DB.loadProfiles();
-    DB.printDB();
+    for (auto const& x : DB.m_DBMap){
+        std::cout << x.second.m_Email << std::endl;
+    }
 }

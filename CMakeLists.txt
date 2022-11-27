@@ -8,6 +8,7 @@ add_subdirectory(vendor/json)
 add_library(employee_lib STATIC
     src/Database.cpp
     src/Profile.cpp
+    src/Helpers.cpp
 )
 
 target_include_directories(employee_lib
