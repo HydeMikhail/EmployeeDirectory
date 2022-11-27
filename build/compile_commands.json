@@ -1,0 +1,17 @@
+[
+{
+  "directory": "/home/mikhail/Documents/C++/proj_tmp/build",
+  "command": "/usr/bin/g++  -I/home/mikhail/Documents/C++/proj_tmp/vendor/json/include -I/home/mikhail/Documents/C++/proj_tmp/include -g -o CMakeFiles/employee_lib.dir/src/Database.cpp.o -c /home/mikhail/Documents/C++/proj_tmp/src/Database.cpp",
+  "file": "/home/mikhail/Documents/C++/proj_tmp/src/Database.cpp"
+},
+{
+  "directory": "/home/mikhail/Documents/C++/proj_tmp/build",
+  "command": "/usr/bin/g++  -I/home/mikhail/Documents/C++/proj_tmp/vendor/json/include -I/home/mikhail/Documents/C++/proj_tmp/include -g -o CMakeFiles/employee_lib.dir/src/Profile.cpp.o -c /home/mikhail/Documents/C++/proj_tmp/src/Profile.cpp",
+  "file": "/home/mikhail/Documents/C++/proj_tmp/src/Profile.cpp"
+},
+{
+  "directory": "/home/mikhail/Documents/C++/proj_tmp/build",
+  "command": "/usr/bin/g++  -I/home/mikhail/Documents/C++/proj_tmp/vendor/json/include -I/home/mikhail/Documents/C++/proj_tmp/include -g -o CMakeFiles/employee_directory.dir/src/main.cpp.o -c /home/mikhail/Documents/C++/proj_tmp/src/main.cpp",
+  "file": "/home/mikhail/Documents/C++/proj_tmp/src/main.cpp"
+}
+]

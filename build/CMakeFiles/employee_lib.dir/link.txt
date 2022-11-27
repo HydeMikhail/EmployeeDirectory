@@ -1,0 +1,2 @@
+/usr/bin/ar qc libemployee_lib.a CMakeFiles/employee_lib.dir/src/Database.cpp.o CMakeFiles/employee_lib.dir/src/Profile.cpp.o
+/usr/bin/ranlib libemployee_lib.a
