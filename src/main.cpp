@@ -1,12 +1,10 @@
-#include "Database.h"
-#include "Profile.h"
-#include <iostream>
+#include "MainWindow.h"
+#include <QtWidgets/QApplication>
 
-int main(){
-    Database DB;
-    DB.LoadAsMap();
-
-    for (auto const& x : DB.m_DBMap){
-        std::cout << x.second.m_Email << std::endl;
-    }
+int main(int argc, char *argv[])
+{
+    QApplication a(argc, argv);
+    MainWindow w;
+    w.show();
+    return a.exec();
 }
