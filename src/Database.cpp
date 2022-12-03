@@ -5,15 +5,16 @@ using Json = nlohmann::json;
 Database::Database(){
     Database::LoadFromFile();
     Database::LoadEmployeeIDs();
+    Database::LoadAsMap();
 }
 
 void Database::LoadFromFile(){
-    std::ifstream path("data/employees.json");
+    std::ifstream path("data/json/employees.json");
     m_DBBase = Json::parse(path);
 }
 
 void Database::SaveToFile(){
-    std::ofstream path("data/employees.json");
+    std::ofstream path("data/json/employees.json");
     path << m_DBBase;
 }
 

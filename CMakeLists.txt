@@ -2,35 +2,50 @@ cmake_minimum_required(VERSION 3.11 FATAL_ERROR)
 project(employee_directory VERSION 0.0.1 LANGUAGES CXX)
 
 # Configure Qt Libraries
-set(CMAKE_AUTOUIC ON)
-set(CMAKE_AUTOMOC ON)
-set(CMAKE_AUTORCC ON)
-set(CMAKE_POSITION_INDEPENDENT_CODE ON)
-set(CMAKE_PREFIX_PATH $ENV{HOME}/Qt/5.9.9/gcc_64/)
-find_package(Qt5 COMPONENTS Core Widgets REQUIRED)
+set(CMAKE_AUTOUIC ON) # Handle Qt uic Code Generator
+set(CMAKE_AUTOMOC ON) # Handle Qt moc Preprocessor
+set(CMAKE_AUTOUIC_SEARCH_PATHS forms) # Point AUTOUIC to Paths
+set(CMAKE_POSITION_INDEPENDENT_CODE ON) # fPIC flag for Qt
+set(CMAKE_PREFIX_PATH $ENV{HOME}/Qt/5.9.9/gcc_64/) # Point CMake to Qt CmakeConfig
+find_package(Qt5 COMPONENTS Core Widgets REQUIRED) # Find Required Qt Packages
 
-# Include Vendor Directories
-include_directories(vendor/json/include)
-add_subdirectory(vendor/json)
+# Include Lib Directories
+include_directories(vendor/json/include/) # Add directory to include path
+add_subdirectory(vendor/json) # Add Subdirectory CMake to CMake build
 
 # Generate Static Library
+# Add all header, cpp, and ui files
+# for compilation -> Library
 add_library(employee_lib
-    src/MainWindow.cpp
+    forms/loginwindow.ui
+    forms/adminwindow.ui
+    forms/userwindow.ui
+    forms/useredit.ui    
+
+    src/LoginWindow.cpp
+    src/AdminWindow.cpp
+    src/UserWindow.cpp
+    src/UserEdit.cpp
     src/Database.cpp
     src/Profile.cpp
     src/Helpers.cpp
-    src/mainwindow.ui
+    src/Manager.cpp
 
+    include/LoginWindow.h
+    include/AdminWindow.h
+    include/UserWindow.h
+    include/UserEdit.h
     include/Database.h
     include/Profile.h
     include/Helpers.h
-    include/MainWindow.h
+    include/Manager.h
 )
 
 target_include_directories(employee_lib
     PUBLIC
-        ${PROJECT_SOURCE_DIR}/include
         ${CMAKE_PREFIX_PATH}/include
+        ${PROJECT_SOURCE_DIR}/forms
+        ${PROJECT_SOURCE_DIR}/include
 )
 
 # Generate Executable and Link Libraries

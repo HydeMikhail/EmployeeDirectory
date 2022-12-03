@@ -1,10 +1,9 @@
-#include "MainWindow.h"
+#include "Manager.h"
 #include <QtWidgets/QApplication>
 
 int main(int argc, char *argv[])
 {
-    QApplication a(argc, argv);
-    MainWindow w;
-    w.show();
-    return a.exec();
+    Manager m(argc, argv);
+    m.Run();
+    return m.exec();
 }
