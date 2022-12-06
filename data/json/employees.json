@@ -1,80 +1,26 @@
 {
   "586rswb4xkfteuvo": {
     "Account": {
-      "Admin": false,
-      "Password": "password"
-    },
-    "Compensation": {
-      "Bonus": 10000,
-      "Options": 1000,
-      "Salary": 100000
-    },
-    "Email": "nisal.ovitgala@company.com",
-    "EmployeeType": 0,
-    "FirstName": "Nisal",
-    "LastName": "Ovitgala",
-    "Location": 0,
-    "Reports": [],
-    "StartDate": {
-      "Day": 9,
-      "Month": 10,
-      "Year": 2021
-    },
-    "Team": 1,
-    "Title": "Test Engineer",
-    "VerticalSegment": 0
-  },
-  "suwp9ft8ho3ejaqb": {
-    "Account": {
       "Admin": true,
       "Password": "password"
     },
     "Compensation": {
-      "Bonus": 20000,
-      "Options": 5000,
-      "Salary": 150000
+      "Bonus": 0,
+      "Options": 0,
+      "Salary": 0
     },
-    "Email": "alec.rudd@company.com",
-    "EmployeeType": 0,
-    "FirstName": "Alec",
-    "LastName": "Rudd",
-    "Location": 0,
-    "Reports": [
-      "yp9g30fuctz8ab4s",
-      "586rswb4xkfteuvo"
-    ],
+    "Email": "admin@company.com",
+    "EmployeeType": 3,
+    "FirstName": "System",
+    "LastName": "Administrator",
+    "Location": 3,
     "StartDate": {
-      "Day": 28,
+      "Day": 1,
       "Month": 1,
-      "Year": 2018
+      "Year": 1990
     },
-    "Team": 1,
-    "Title": "Technical Lead",
-    "VerticalSegment": 0
-  },
-  "yp9g30fuctz8ab4s": {
-    "Account": {
-      "Admin": false,
-      "Password": "password"
-    },
-    "Compensation": {
-      "Bonus": 10000,
-      "Options": 2000,
-      "Salary": 100000
-    },
-    "Email": "mikhail.hyde@company.com",
-    "EmployeeType": 0,
-    "FirstName": "Mikhail",
-    "LastName": "Hyde",
-    "Location": 0,
-    "Reports": [],
-    "StartDate": {
-      "Day": 4,
-      "Month": 4,
-      "Year": 2022
-    },
-    "Team": 0,
-    "Title": "Integration Engineer",
-    "VerticalSegment": 0
+    "Team": 5,
+    "Title": "IT Administrator",
+    "VerticalSegment": 1
   }
 }

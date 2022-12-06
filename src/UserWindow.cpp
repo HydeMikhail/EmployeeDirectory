@@ -24,12 +24,16 @@ void UserWindow::Configure(Profile profile){
     ui->ImageLabel->setPixmap(pix);
     ui->ImageLabel->setScaledContents(true);
 
-    QString fn = QString::fromStdString(profile.m_FirstName);
-    QString ln = QString::fromStdString(profile.m_LastName);
+    QString fn = QString::fromStdString(profile.get_FirstName());
+    QString ln = QString::fromStdString(profile.get_LastName());
 
     QString name = fn + ' ' + ln;
 
     ui->NameLabel->setText(name);
-    ui->EmailLabel->setText(QString::fromStdString(profile.m_Email));
-    ui->TitleLabel->setText(QString::fromStdString(profile.m_Title));
+    ui->EmailLabel->setText(QString::fromStdString(profile.get_Email()));
+    ui->TitleLabel->setText(QString::fromStdString(profile.get_Title()));
+
+    if (!profile.get_Account().Admin){
+        ui->UserEditBox->hide();
+    }
 }

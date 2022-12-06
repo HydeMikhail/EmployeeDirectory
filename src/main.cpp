@@ -3,7 +3,8 @@
 
 int main(int argc, char *argv[])
 {
-    Manager m(argc, argv);
+    QApplication a(argc, argv);
+    Manager m;
     m.Run();
-    return m.exec();
+    return a.exec();
 }

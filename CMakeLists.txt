@@ -18,12 +18,10 @@ add_subdirectory(vendor/json) # Add Subdirectory CMake to CMake build
 # for compilation -> Library
 add_library(employee_lib
     forms/loginwindow.ui
-    forms/adminwindow.ui
     forms/userwindow.ui
     forms/useredit.ui    
 
     src/LoginWindow.cpp
-    src/AdminWindow.cpp
     src/UserWindow.cpp
     src/UserEdit.cpp
     src/Database.cpp
@@ -32,7 +30,6 @@ add_library(employee_lib
     src/Manager.cpp
 
     include/LoginWindow.h
-    include/AdminWindow.h
     include/UserWindow.h
     include/UserEdit.h
     include/Database.h
@@ -43,9 +40,9 @@ add_library(employee_lib
 
 target_include_directories(employee_lib
     PUBLIC
-        ${CMAKE_PREFIX_PATH}/include
         ${PROJECT_SOURCE_DIR}/forms
         ${PROJECT_SOURCE_DIR}/include
+        ${CMAKE_PREFIX_PATH}/include
 )
 
 # Generate Executable and Link Libraries

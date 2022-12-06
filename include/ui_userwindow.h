@@ -21,6 +21,7 @@
 #include <QtWidgets/QMenuBar>
 #include <QtWidgets/QPushButton>
 #include <QtWidgets/QStatusBar>
+#include <QtWidgets/QVBoxLayout>
 #include <QtWidgets/QWidget>
 
 QT_BEGIN_NAMESPACE
@@ -41,6 +42,12 @@ public:
     QLabel *label_2;
     QLabel *ImageLabel;
     QPushButton *LogOutButton;
+    QGroupBox *UserEditBox;
+    QWidget *verticalLayoutWidget;
+    QVBoxLayout *verticalLayout;
+    QPushButton *AddButton;
+    QPushButton *EditButton;
+    QPushButton *DeleteButton;
     QMenuBar *menubar;
     QStatusBar *statusbar;
 
@@ -101,6 +108,30 @@ public:
         LogOutButton = new QPushButton(centralwidget);
         LogOutButton->setObjectName(QStringLiteral("LogOutButton"));
         LogOutButton->setGeometry(QRect(690, 910, 89, 25));
+        UserEditBox = new QGroupBox(centralwidget);
+        UserEditBox->setObjectName(QStringLiteral("UserEditBox"));
+        UserEditBox->setGeometry(QRect(550, 530, 161, 111));
+        verticalLayoutWidget = new QWidget(UserEditBox);
+        verticalLayoutWidget->setObjectName(QStringLiteral("verticalLayoutWidget"));
+        verticalLayoutWidget->setGeometry(QRect(0, 20, 161, 91));
+        verticalLayout = new QVBoxLayout(verticalLayoutWidget);
+        verticalLayout->setObjectName(QStringLiteral("verticalLayout"));
+        verticalLayout->setContentsMargins(0, 0, 0, 0);
+        AddButton = new QPushButton(verticalLayoutWidget);
+        AddButton->setObjectName(QStringLiteral("AddButton"));
+
+        verticalLayout->addWidget(AddButton);
+
+        EditButton = new QPushButton(verticalLayoutWidget);
+        EditButton->setObjectName(QStringLiteral("EditButton"));
+
+        verticalLayout->addWidget(EditButton);
+
+        DeleteButton = new QPushButton(verticalLayoutWidget);
+        DeleteButton->setObjectName(QStringLiteral("DeleteButton"));
+
+        verticalLayout->addWidget(DeleteButton);
+
         UserWindow->setCentralWidget(centralwidget);
         menubar = new QMenuBar(UserWindow);
         menubar->setObjectName(QStringLiteral("menubar"));
@@ -128,6 +159,10 @@ public:
         label_2->setText(QApplication::translate("UserWindow", "    Name", Q_NULLPTR));
         ImageLabel->setText(QString());
         LogOutButton->setText(QApplication::translate("UserWindow", "LogOut", Q_NULLPTR));
+        UserEditBox->setTitle(QApplication::translate("UserWindow", "User Edit", Q_NULLPTR));
+        AddButton->setText(QApplication::translate("UserWindow", "Add", Q_NULLPTR));
+        EditButton->setText(QApplication::translate("UserWindow", "Edit", Q_NULLPTR));
+        DeleteButton->setText(QApplication::translate("UserWindow", "Delete", Q_NULLPTR));
     } // retranslateUi
 
 };

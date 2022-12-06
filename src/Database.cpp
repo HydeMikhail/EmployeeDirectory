@@ -45,24 +45,27 @@ Profile Database::LoadProfile(std::string EmployeeID){
     Json startDate = InfoMap["StartDate"];
     Json account = InfoMap["Account"];
     
-    employee.m_FirstName = InfoMap["FirstName"];
-    employee.m_LastName = InfoMap["LastName"];
-    employee.m_Email = InfoMap["Email"];
-    employee.m_Title = InfoMap["Title"];
-    employee.m_Team = InfoMap["Team"];
-    employee.m_Location = InfoMap["Location"];
-    employee.m_EmployeeType = InfoMap["EmployeeType"];
-    employee.m_Compensation = {compensation["Salary"],
-                               compensation["Bonus"],
-                               compensation["Options"]};
-    employee.m_StartDate = {startDate["Year"],
-                            startDate["Month"],
-                            startDate["Day"]};
-    employee.m_Account = {account["Password"],
-                          account["Admin"]};
-    employee.m_VerticalSegment = InfoMap["VerticalSegment"];
+    employee.set_FirstName(InfoMap["FirstName"]);
+    employee.set_LastName(InfoMap["LastName"]);
+    employee.set_Email(InfoMap["Email"]);
+    employee.set_Title(InfoMap["Title"]);
+    employee.set_Team(InfoMap["Team"]);
+    employee.set_Location(InfoMap["Location"]);
+    employee.set_Type(InfoMap["EmployeeType"]);
 
-    employee.m_Reports = InfoMap["Reports"];
+    Profile::EmployeeCompensation comp = {compensation["Salary"],
+                                          compensation["Bonus"],
+                                          compensation["Options"]};
+    Profile::EmployeeStartDate date = {startDate["Year"],
+                                       startDate["Month"],
+                                       startDate["Day"]};
+    Profile::EmployeeAccount acc = {account["Password"],
+                                    account["Admin"]};
+
+    employee.set_Compensation(comp);
+    employee.set_StartDate(date);
+    employee.set_Account(acc);
+    employee.set_VerticalSegment(InfoMap["VerticalSegment"]);
 
     return employee;
 }
@@ -71,29 +74,34 @@ void Database::AddProfile(Profile Employee){
 
     Json EmployeeInfo;
     Json Compensation;
-    Compensation["Salary"] = Employee.m_Compensation.Salary;
-    Compensation["Bonus"] = Employee.m_Compensation.Bonus;
-    Compensation["Options"] = Employee.m_Compensation.Options;
     Json StartDate;
-    StartDate["Year"] = Employee.m_StartDate.Year;
-    StartDate["Month"] = Employee.m_StartDate.Month;
-    StartDate["Day"] = Employee.m_StartDate.Day;
     Json Account;
-    Account["Password"] = Employee.m_Account.Password;
-    Account["Admin"] = Employee.m_Account.Admin;
 
-    EmployeeInfo["FirstName"] = Employee.m_FirstName;
-    EmployeeInfo["LastName"] = Employee.m_LastName;
-    EmployeeInfo["Email"] = Employee.m_Email;
-    EmployeeInfo["Title"] = Employee.m_Title;
-    EmployeeInfo["Team"] = Employee.m_Team;
-    EmployeeInfo["Location"] = Employee.m_Location;
-    EmployeeInfo["EmployeeType"] = Employee.m_EmployeeType;
+    Profile::EmployeeCompensation comp = Employee.get_Compensation();
+    Compensation["Salary"] = comp.Salary;
+    Compensation["Bonus"] = comp.Bonus;
+    Compensation["Options"] = comp.Options;
+    
+    Profile::EmployeeStartDate startDate = Employee.get_StartDate();
+    StartDate["Year"] = startDate.Year;
+    StartDate["Month"] = startDate.Month;
+    StartDate["Day"] = startDate.Day;
+    
+    Profile::EmployeeAccount account = Employee.get_Account();
+    Account["Password"] = account.Password;
+    Account["Admin"] = account.Admin;
+
+    EmployeeInfo["FirstName"] = Employee.get_FirstName();
+    EmployeeInfo["LastName"] = Employee.get_LastName();
+    EmployeeInfo["Email"] = Employee.get_Email();
+    EmployeeInfo["Title"] = Employee.get_Title();
+    EmployeeInfo["Team"] = Employee.get_Team();
+    EmployeeInfo["Location"] = Employee.get_Location();
+    EmployeeInfo["EmployeeType"] = Employee.get_Type();
     EmployeeInfo["Compensation"] = Compensation;
     EmployeeInfo["StartDate"] = StartDate;
-    EmployeeInfo["VerticalSegment"] = Employee.m_VerticalSegment;
+    EmployeeInfo["VerticalSegment"] = Employee.get_VerticalSegment();
     EmployeeInfo["Account"] = Account;
-    EmployeeInfo["Reports"] = Employee.m_Reports;
 
     std::string EmployeeID = GenerateEmployeeID();
 

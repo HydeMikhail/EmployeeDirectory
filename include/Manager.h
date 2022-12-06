@@ -4,27 +4,32 @@
 
 #include "ui_loginwindow.h"
 #include "ui_userwindow.h"
-#include "LoginWindow.h"
-#include "UserWindow.h"
+#include "ui_useredit.h"
 #include "Profile.h"
 #include "Database.h"
+#include "LoginWindow.h"
+#include "UserWindow.h"
+#include "UserEdit.h"
 
-class Manager : public QApplication
+class Manager : public QObject
 {
     Q_OBJECT
 
 public:
 
-    Manager(int argc, char *argv[]);
+    Manager();
     ~Manager();
 
     void Run();
 
-    LoginWindow m_LoginWindow;
+private:
+
+    UserEdit m_UserEdit;
     UserWindow m_UserWindow;
+    LoginWindow m_LoginWindow;
 
     Database m_Database;
-    Profile m_SelectedProfile;
+    Profile m_LoginProfile;
 
 // Login Signals
 signals:
@@ -33,7 +38,7 @@ signals:
 // Login Slots
 private slots:
     void on_LoginClicked();
-    void on_CancelClicked();
+    void on_LoginCancelClicked();
     void on_UserLogin();
 
 // App Signals
@@ -43,4 +48,12 @@ signals:
 // App Slots
 private slots:
     void on_LogoutClicked();
+    void on_AddClicked();
+    void on_EditClicked();
+    void on_DeleteClicked();
+
+// Edit Slots
+private slots:
+    void on_ApplyClicked();
+    void on_EditCancelClicked();
 };

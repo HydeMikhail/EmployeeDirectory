@@ -10,8 +10,7 @@ Profile::Profile(std::string FirstName,
                  EmployeeCompensation Compensation,
                  EmployeeStartDate StartDate,
                  EmployeeVerticalSegment VerticalSegment,
-                 EmployeeAccount Account,
-                 std::vector<std::string> Reports){
+                 EmployeeAccount Account){
     
     m_FirstName = FirstName;
     m_LastName = LastName;
@@ -20,13 +19,11 @@ Profile::Profile(std::string FirstName,
 
     m_Team = Team;
     m_Location = Location;
-    m_EmployeeType = Type;    
+    m_Type = Type;    
     m_Compensation = Compensation;
     m_StartDate = StartDate;
     m_VerticalSegment = VerticalSegment;
     m_Account = Account;
-
-    m_Reports = Reports;
 }
 
 std::string Profile::GenerateEmail(){
